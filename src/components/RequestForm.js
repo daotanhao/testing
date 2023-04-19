@@ -38,8 +38,8 @@ const RequestForm = () => {
     dispatch(
       saveRequestToCollection({ json: request.json, body: request.body })
     );
-    saveCollectionToList(collection);
-    dispatch();
+    dispatch(saveCollectionToList({ json: request.json, body: request.body }));
+
     setJson('');
     setBody('');
   };

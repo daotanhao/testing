@@ -8,16 +8,14 @@ const listCollectionSlice = createSlice({
   ],
   reducers: {
     saveCollectionToList: (state, action) => {
-      state = action.payload;
-    },
-    saveRequestToCollection: (state, action) => {
-      const collection = state.find((collection) => collection.id === 1);
-      state.requests.push(action.payload);
+      const collectionIndex = state.findIndex(
+        (collection) => collection.id === 1
+      );
+      state[collectionIndex].requests.push(action.payload);
     },
   },
 });
 
-export const { saveCollectionToList, selectRequest } =
-  listCollectionSlice.actions;
+export const { saveCollectionToList } = listCollectionSlice.actions;
 
 export default listCollectionSlice;
