@@ -1,19 +1,14 @@
-// App.js
-
-import React, { useState } from 'react';
-import RequestList from './components/RequestList';
-import RequestForm from './components/RequestForm';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import useShortcut from './hooks/useShortcut';
 
 const App = () => {
-  console.log(useSelector((state) => state));
+  const handleShortcut = () => {
+    alert('Hello!');
+  };
 
-  return (
-    <div className="app">
-      <RequestList />
-      <RequestForm />
-    </div>
-  );
+  useShortcut(handleShortcut, ['Control', 'Alt', 'Shift']);
+
+  return <div>...</div>;
 };
 
 export default App;
