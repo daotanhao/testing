@@ -1,62 +1,43 @@
 import React, { useState } from 'react';
+import { HotKeys } from 'react-hotkeys';
 
-const Authorization = () => {
-  const [apiUrl, setApiUrl] = useState(''); // Trạng thái lưu trữ giá trị của ô nhập API URL
-  const [authType, setAuthType] = useState(''); // Trạng thái lưu trữ giá trị của danh sách chọn
+const HotkeyInput = () => {
+  const [hotkey, setHotkey] = useState('');
 
-  // Hàm xử lý sự kiện thay đổi giá trị của ô nhập API URL
-  const handleApiUrlChange = (e) => {
-    setApiUrl(e.target.value);
+  const handleKeyDown = (event) => {
+    const { key, ctrlKey, altKey, shiftKey } = event;
+
+    // Xử lý sự kiện khi có phím tắt được nhấn
+    if (key !== 'Control' && key !== 'Alt' && key !== 'Shift') {
+      const modifiers = [];
+
+      if (ctrlKey) {
+        modifiers.push('Ctrl');
+      }
+
+      if (altKey) {
+        modifiers.push('Alt');
+      }
+
+      if (shiftKey) {
+        modifiers.push('Shift');
+      }
+
+      const combination = [...modifiers, key].join(' + ');
+      setHotkey(combination);
+    }
   };
 
-  // Hàm xử lý sự kiện thay đổi giá trị của danh sách chọn
-  const handleAuthTypeChange = (e) => {
-    setAuthType(e.target.value);
+  const handlers = {
+    handleKeyDown,
   };
 
-  // Render giao diện
   return (
-    <div>
-      <h1>API Test</h1>
-      <label>
-        API URL:{' '}
-        <input type="text" value={apiUrl} onChange={handleApiUrlChange} />
-      </label>
-      <br />
-      <label>
-        Auth Type:{' '}
-        <select value={authType} onChange={handleAuthTypeChange}>
-          <option value="">No Auth</option>
-          <option value="bearer">Bearer Token</option>
-          <option value="basic">Basic Auth</option>
-        </select>
-      </label>
-      <br />
-      {authType === 'bearer' && (
-        <div>
-          {/* Hiển thị ô nhập Bearer Token */}
-          <label>
-            Bearer Token: <input type="text" placeholder="Enter bearer token" />
-          </label>
-          <br />
-        </div>
-      )}
-      {authType === 'basic' && (
-        <div>
-          {/* Hiển thị ô nhập tên người dùng và mật khẩu */}
-          <label>
-            Username: <input type="text" placeholder="Enter username" />
-          </label>
-          <br />
-          <label>
-            Password: <input type="password" placeholder="Enter password" />
-          </label>
-          <br />
-        </div>
-      )}
-      <button>Send Request</button>
-    </div>
+    <HotKeys handlers={handlers}>
+      <input type="text" onKeyDown={handleKeyDown} />
+      <p>Hotkey: {hotkey}</p>
+    </HotKeys>
   );
 };
 
-export default Authorization;
+export default HotkeyInput;

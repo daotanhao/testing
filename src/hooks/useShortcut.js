@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 const useShortcut = (callback, shortcutKeys) => {
   const [keysPressed, setKeysPressed] = useState([]);
   const [isPressAll, setIsPressAll] = useState(false);
-  const downHandler = ({ key }) => {
+  const downHandler = ({ event }) => {
+    const { key } = event;
     // if (shortcutKeys.includes(key) && !keysPressed.includes(key))
+    event.preventDefault();
     if (!shortcutKeys.includes(key)) return;
     setKeysPressed((pressed) => [...pressed, key]);
   };
@@ -27,7 +29,7 @@ const useShortcut = (callback, shortcutKeys) => {
   useEffect(() => {
     window.addEventListener('keydown', downHandler);
     window.addEventListener('keyup', upHandler);
-    console.log('change');
+    console.log(shortcutKeys.every((key) => keysPressed.includes(key)));
     return () => {
       window.removeEventListener('keydown', downHandler);
       window.removeEventListener('keyup', upHandler);

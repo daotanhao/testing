@@ -1,14 +1,9 @@
 import React from 'react';
-import useShortcut from './hooks/useShortcut';
+import useShortcut2 from './hooks/useShortcut2.ts';
+import HotkeyInput from './components/Authorization.js';
 
 const App = () => {
-  const handleShortcut = () => {
-    alert('Hello!');
-  };
-
-  useShortcut(handleShortcut, ['Control', 'Alt', 'Shift']);
-
-  return <div>...</div>;
+  return <HotkeyInput />;
 };
 
 export default App;
