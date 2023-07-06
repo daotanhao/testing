@@ -1,0 +1,28 @@
+import { Server } from 'mock-socket';
+
+const startMockWebSocket = (url, handleMessage) => {
+  const socketServer = new Server(url);
+
+  socketServer.on('connection', (socket) => {
+    console.log('Client connected');
+
+    socket.send('Welcome to the WebSocket server');
+
+    socket.on('message', (data) => {
+      console.log('Received message:', data);
+
+      // Xử lý thông báo và gọi hàm callback
+      handleMessage(data, (response) => {
+        socket.send(response);
+      });
+    });
+
+    socket.on('close', () => {
+      console.log('Client disconnected');
+    });
+  });
+
+  return socketServer;
+};
+
+export default startMockWebSocket;
