@@ -1,0 +1,30 @@
+import React, { useEffect } from 'react';
+import startMockWebSocket from './mockWebSocket';
+
+const MyComponent = () => {
+  useEffect(() => {
+    const socket = startMockWebSocket('ws://localhost:8080', handleMessage);
+
+    // Hàm xử lý thông báo
+    function handleMessage(data, callback) {
+      console.log('Received message:', data);
+
+      // Xử lý thông báo và gọi lại callback với dữ liệu phản hồi
+      const response = 'Response to ' + data;
+      callback(response);
+    }
+
+    return () => {
+      // Đóng kết nối WebSocket khi component bị hủy
+      socket.close();
+    };
+  }, []);
+
+  return (
+    <div>
+      {/* Giao diện của component */}
+    </div>
+  );
+};
+
+export default MyComponent;
