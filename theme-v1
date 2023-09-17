@@ -1,0 +1,46 @@
+// Màu chủ đạo
+@primary-color: #2f81f7;
+
+// Màu văn bản cơ bản
+@text-color: #ffffff; // Màu chữ văn bản cơ bản
+@text-color-secondary: #b0bec5; // Màu chữ văn bản phụ
+
+// Màu nền
+@body-background: #121212; // Màu nền của toàn bộ ứng dụng
+@component-background: #1e1e1e; // Màu nền của các thành phần như card và popover
+
+// Màu border
+@border-color-base: #333; // Màu của các đường viền cơ bản
+@border-color-split: #444; // Màu của đường viền phân chia các thành phần như bảng và menu
+
+// Màu liên kết
+@link-color: #1890ff; // Màu của liên kết
+
+// Màu thành công và thất bại
+@success-color: #00a854; // Màu cho thông báo thành công
+@error-color: #f04134; // Màu cho thông báo lỗi
+@warning-color: #ffbf00; // Màu cho thông báo cảnh báo
+
+// Màu cho danh sách và menu
+@menu-bg: #1e1e1e; // Màu nền cho menu
+@menu-item-color: #ffffff; // Màu chữ cho mục menu
+@menu-highlight-color: #2f81f7; // Màu nền khi mục menu được hover
+
+// Màu cho tab và tag
+@tabs-default-color: #ffffff; // Màu văn bản mặc định của tab
+@tabs-default-bg: #121212; // Màu nền mặc định của tab
+@tag-default-bg: #333; // Màu nền mặc định của tag
+
+// Màu cho các thành phần form
+@input-hover-border-color: #ffffff; // Màu đường viền input khi hover
+@input-disabled-bg: #333; // Màu nền input khi bị vô hiệu hóa
+@radio-button-color: #ffffff; // Màu chữ cho radio button
+@checkbox-check-color: #ffffff; // Màu chữ cho checkbox
+
+// Màu cho tiêu đề và phông chữ
+@heading-color: #ffffff; // Màu cho tiêu đề
+@text-color-secondary: #b0bec5; // Màu cho văn bản phụ
+
+// Màu cho popover và tooltip
+@popover-background: #333; // Màu nền cho popover
+@tooltip-bg: #333; // Màu nền cho tooltip
