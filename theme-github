@@ -1,0 +1,32 @@
+// Màu chủ đạo
+@primary-color: #0366d6; // Màu xanh dương đậm sử dụng cho các liên kết và nút chính
+
+// Màu văn bản
+@text-color: #ffffff; // Màu chữ văn bản cơ bản
+@text-color-secondary: #8b949e; // Màu chữ văn bản phụ
+
+// Màu nền
+@body-background: #0d1117; // Màu nền chính cho toàn bộ ứng dụng
+@component-background: #161b22; // Màu nền của các thành phần như card và popover
+
+// Màu border
+@border-color-base: #30363d; // Màu của các đường viền cơ bản
+@border-color-split: #30363d; // Màu của đường viền phân chia các thành phần như bảng và menu
+
+// Màu liên kết
+@link-color: #0366d6; // Màu cho các liên kết
+
+// Màu thành công và thất bại
+@success-color: #28a745; // Màu cho thông báo thành công
+@error-color: #d73a49; // Màu cho thông báo lỗi
+@warning-color: #ffd33d; // Màu cho thông báo cảnh báo
+
+// Màu cho danh sách và menu
+@menu-bg: #161b22; // Màu nền cho menu
+@menu-item-color: #ffffff; // Màu chữ cho mục menu
+@menu-highlight-color: #0366d6; // Màu nền khi mục menu được hover
+
+// Màu cho tab và tag
+@tabs-default-color: #ffffff; // Màu văn bản mặc định của tab
+@tabs-default-bg: #0d1117; // Màu nền mặc định của tab
+@tag-default
